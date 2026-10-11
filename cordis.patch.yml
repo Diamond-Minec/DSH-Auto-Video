@@ -1,0 +1,28 @@
+# dsh-plugin-auto-video 的组合包 patch：插入一行宿主插件。
+#
+# 这里只是「默认值」，日常不用改 —— 打开 DSH 设置里的「自动成片」一节，
+# 用大白话界面改就行（改完立即生效，不用重启）。
+- insert:
+    - id: auto-video
+      name: dsh-plugin-auto-video
+      config:
+        # 跑合成的 Python 运行环境。留空 = 插件旁边的 runtimes/jianying-venv
+        venvDir: ''
+        # 成片存到哪个文件夹。留空 = $DSH_HOME/autovideo-output
+        outDir: ''
+        # 默认用哪个声音配音（微软 edge-tts 的中文音色）
+        voice: zh-CN-XiaoxiaoNeural
+        # 横屏 landscape(1920x1080) / 竖屏 portrait(1080x1920)
+        orientation: landscape
+        # 背景音乐音量 0~1。有人声时 0.6 左右刚好
+        bgmVolume: 0.6
+        # 默认背景音乐：本地文件路径，或剪映云曲库的 id/关键词。留空 = 不加配乐
+        bgm: ''
+        # 字幕大小（像素）。留空 = 按分辨率自动
+        subtitleFontSize: 0
+        # 要不要把字幕烧进画面（不烧的话字幕只留在 .srt 文件里）
+        burnSubtitles: true
+        # 素材文件夹：放你的图片/视频。留空 = 只用插件自己找的
+        mediaDir: ''
+        # 需要云端音乐时才用：剪映自动化工具包在哪
+        skillRoot: ''

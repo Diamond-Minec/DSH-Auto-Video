@@ -1,0 +1,36 @@
+# 统一换行符，避免 Windows / macOS / Linux 协作者产生无意义的整文件 diff
+* text=auto eol=lf
+
+# 明确声明为二进制，别做换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mp4 binary
+*.mkv binary
+*.mov binary
+*.mp3 binary
+*.m4a binary
+*.wav binary
+*.exe binary
+*.dll binary
+
+# 这些文件在 GitHub 上按文本渲染并语法高亮
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.md   text eol=lf
+*.py   text eol=lf
+*.svg  text eol=lf
+
+# 让 GitHub 不要把生成的产物算进语言统计
+tools/** linguist-vendored=false
+py/**    linguist-vendored=false

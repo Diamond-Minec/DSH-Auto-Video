@@ -1,0 +1,66 @@
+{
+  "name": "dsh-plugin-auto-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turn a script into a finished video locally: AI voiceover, perfectly timed subtitles, background music and your own photos/clips assembled, then encoded straight to MP4 with ffmpeg. No video editor required.",
+  "meta": {
+    "title": "自动成片",
+    "description": "给我一段文案，直接给你一个 mp4：自动配音、自动字幕、自动配乐、自动把图片和视频拼起来。不需要剪映，也不用学剪辑。"
+  },
+  "license": "MIT",
+  "icon": "./icon.svg",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "video",
+    "ffmpeg",
+    "tts",
+    "subtitles",
+    "edge-tts",
+    "text-to-video",
+    "automation"
+  ],
+  "scripts": {
+    "test": "node tools/verify.mjs && node tools/render.mjs && node tools/smoke.mjs",
+    "verify": "node tools/verify.mjs",
+    "render": "node tools/render.mjs",
+    "smoke": "node tools/smoke.mjs",
+    "smoke:make": "node tools/smoke.mjs --make"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/en.json": "./locale/en.json",
+    "./locale/zh.json": "./locale/zh.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "assets/",
+    "py/",
+    "tools/",
+    "locale/en.json",
+    "locale/zh.json",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}

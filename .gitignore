@@ -1,0 +1,36 @@
+# --- Node ---
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+.npm/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- 运行环境与产物（本插件会在这些位置生成东西，绝对不要提交）---
+runtimes/
+*.mp4
+*.mkv
+*.mov
+*.srt
+*.ass
+autovideo-output/
+
+# --- ffmpeg 下载的二进制 ---
+ffmpeg-*.exe
+ffprobe-*.exe
+
+# --- 编辑器 / 系统 ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- 日志 ---
+*.log
