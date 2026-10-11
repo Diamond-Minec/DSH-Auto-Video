@@ -1,0 +1,36 @@
+name: verify
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Static verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 不需要装任何依赖：verify.mjs 只用 Node 内置模块，
+      # Python 侧只做 py_compile 语法检查（不 import 第三方库）。
+      - name: Static verification
+        run: node tools/verify.mjs
+
+      - name: Settings page render test
+        run: node tools/render.mjs
+
+      - name: Host smoke test (no video production)
+        run: node tools/smoke.mjs
